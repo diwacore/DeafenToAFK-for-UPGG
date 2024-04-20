@@ -23,7 +23,6 @@ async def on_ready():
 async def on_voice_state_update(member, before, after):
     # Check if the member has deafened themselves
     if not before.self_deaf and after.self_deaf:
-        print('User has deafened')
         # Move the member to the AFK channel
         afk_channel = member.guild.get_channel(1231230478741274684)  # Replace with your AFK channel ID
         await member.move_to(afk_channel)
