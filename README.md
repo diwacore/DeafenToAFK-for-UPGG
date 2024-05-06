@@ -1,0 +1,1 @@
+a lil bot for the upgg discord server :3 don't cheat on ur tambay hours!!!
