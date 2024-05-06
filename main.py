@@ -9,6 +9,7 @@ intents.messages = True
 intents.voice_states = True
 intents.members = True
 intents.presences = True
+intents.message_content = True  # Enable message content intent
 
 # Create the bot instance with the specified intents
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -16,7 +17,13 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 # Event listener for when the bot is ready and operational
 @bot.event
 async def on_ready():
-    print('Discord bot is now online')
+    print(f'Logged in as {bot.user.name}')
+    channel_id = 1231335131457917059  # Replace this with the ID of the channel you want to send the message to
+    channel = bot.get_channel(channel_id)
+    if channel:
+        await channel.send('@here Hello, I am now online! I may go offline unexpectedly. If that happens, please contact Diwa!')
+    else:
+        print("Channel not found")
 
 # Event listener for voice state updates
 @bot.event
